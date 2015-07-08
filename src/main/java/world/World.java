@@ -10,19 +10,10 @@ import java.util.List;
  */
 public class World {
     private List<WorldObject> objects = new ArrayList<WorldObject>();
-    private Point goal;
 
 
     public void addObjects(WorldObject... objects) {
         this.objects.addAll(Arrays.asList(objects));
-    }
-
-    public Point getGoal() {
-        return goal;
-    }
-
-    public void setGoal(Point goal) {
-        this.goal = goal;
     }
 
 

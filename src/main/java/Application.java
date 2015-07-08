@@ -6,13 +6,12 @@ import world.WorldVector;
 /**
  * Created by ronalddekker on 08/07/15.
  */
-public class Main {
+public class Application {
     public World world;
 
     public static void main(String[] args) {
-        Main main = new Main();
-        main.world = main.constructWorld();
-
+        Application application = new Application();
+        application.world = application.constructWorld();
     }
 
     protected World constructWorld() {

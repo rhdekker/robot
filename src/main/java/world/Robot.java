@@ -9,25 +9,24 @@ import java.util.List;
 public class Robot {
     private final World world;
     private Point position;
+    private Point goal;
 
     public Robot(World world, Point position) {
         this.world = world;
         this.position = position;
     }
 
-    public boolean hasNotReachedGoal() {
-        // check whether the position point of the robot is at the goal
-        return !position.equals(world.getGoal());
+    public Point getGoal() {
+        return goal;
     }
 
-    public List<Move> getMoves() {
-        List<Move> moves = new ArrayList<Move>();
-        // add moves in all directions
-        moves.add(new Move("upperleft", new Point(position.x-1, position.y-1)));
-        moves.add(new Move("up", new Point(position.x, position.y-1)));
-        moves.add(new Move("upperright", new Point(position.x+1, position.y-1)));
-        // TODO: add more moves
-        return moves;
+    public void setGoal(Point goal) {
+        this.goal = goal;
+    }
+
+    public boolean hasReachedGoal() {
+        // check whether the position point of the robot is at the goal
+        return position.equals(getGoal());
     }
 
     public Move move() {
@@ -42,11 +41,21 @@ public class Robot {
         List<Move> moves = getMoves();
         Move best = null;
         for (Move move : moves) {
-            if (best == null || move.rate(world.getGoal()) < best.rate(world.getGoal())) {
+            if (best == null || move.rate(getGoal()) < best.rate(getGoal())) {
                 best = move;
             }
         }
         return best;
+    }
+
+    private List<Move> getMoves() {
+        List<Move> moves = new ArrayList<>();
+        // add moves in all directions
+        moves.add(new Move("upperleft", new Point(position.x-1, position.y-1)));
+        moves.add(new Move("up", new Point(position.x, position.y-1)));
+        moves.add(new Move("upperright", new Point(position.x+1, position.y-1)));
+        // TODO: add more moves
+        return moves;
     }
 
 }
