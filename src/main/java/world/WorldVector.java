@@ -42,10 +42,10 @@ public class WorldVector {
             verStep = 0;
             length = hor+1;
         } else {
-            horStep = hor / ver;
-            verStep = ver / hor;
-            //        System.out.println(hor+":"+ver);
-            throw new RuntimeException("Length not yet implemented!");
+            int length2 = Math.max(hor, ver);
+            horStep = hor / length2;
+            verStep = ver / length2;
+            length = (int) length2+1;
         }
         double xpos = begin.x;
         double ypos = begin.y;

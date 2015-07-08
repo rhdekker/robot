@@ -21,9 +21,22 @@ public class Application {
         Application application = new Application();
         World world = application.constructWorld();
 
+        // situation 1
+        // add obstruction
+        WorldObject obstruction = new WorldObject("obstruction", new WorldVector(new Point(2,7), new Point(17,7)));
+        world.addObjects(obstruction);
+
+//        // situation 2
+//        WorldObject leftSidePanel = new WorldObject("obstruction", new WorldVector(new Point(2,7), new Point(7,2)));
+//        world.addObjects(leftSidePanel);
+//
+//        WorldObject middlePanel = new WorldObject("obstruction", new WorldVector(new Point(8,2), new Point(12,2)));
+//        world.addObjects(middlePanel);
+
+
         // setup robot
         Robot robot = new SmartRobot(world, new Point(10, 10));
-        robot.setGoal(new Point(10, 5));
+        robot.setGoal(new Point(10, 1));
 
         // let robot walk
         List<Point> path = robot.goToGoal();
@@ -57,10 +70,6 @@ public class Application {
 
         // add border objects to the world
         world.addObjects(upperBorder, leftBorder, rightBorder, lowerBorder);
-
-        // add obstruction
-        WorldObject obstruction = new WorldObject("obstruction", new WorldVector(new Point(2,7), new Point(17,7)));
-        world.addObjects(obstruction);
 
         return world;
     }
