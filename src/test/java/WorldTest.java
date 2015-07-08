@@ -6,6 +6,19 @@ import world.*;
  */
 public class WorldTest {
 
+    @Test
+    public void testCollision() {
+        Application main = new Application();
+        World world = main.constructWorld();
+
+        Point point = new Point(0, 5);
+
+        // should collide with left border
+        WorldVector collisionVector = world.collide(point);
+        System.out.println(collisionVector);
+
+    }
+
 //    @Test
 //    public void testFindNearestBorder() {
 //        Application main = new Application();

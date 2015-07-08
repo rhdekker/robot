@@ -9,13 +9,28 @@ import java.util.List;
  * Created by ronalddekker on 08/07/15.
  */
 public class World {
-    private List<WorldObject> objects = new ArrayList<WorldObject>();
+    private List<WorldObject> objects = new ArrayList<>();
 
 
     public void addObjects(WorldObject... objects) {
-        this.objects.addAll(Arrays.asList(objects));
+        this.addObjects(Arrays.asList(objects));
     }
 
+    public void addObjects(List<WorldObject> objects) {
+        this.objects.addAll(objects);
+    }
+
+    public WorldVector collide(Point point) {
+        WorldVector collidingObject  = null;
+        for (WorldObject object : objects) {
+            WorldVector result = object.collide(point);
+            if (result != null) {
+                collidingObject = result;
+                break;
+            }
+        }
+        return collidingObject;
+    }
 
     //TODO: not finished!
     public WorldObject findNearestBorder(Robot robot) {

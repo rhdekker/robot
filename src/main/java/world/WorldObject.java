@@ -26,4 +26,17 @@ public class WorldObject implements Comparable<WorldObject> {
     public String toString() {
         return title;
     }
+
+    public WorldVector collide(Point target) {
+        // check whether the point is inside a vector
+        for (WorldVector vector : vectors) {
+            List<Point> points = vector.rasterize();
+            for (Point point : points) {
+                if (point.equals(target)) {
+                    return vector;
+                }
+            }
+        }
+        return null;
+    }
 }

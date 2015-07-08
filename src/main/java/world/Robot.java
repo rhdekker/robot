@@ -30,14 +30,19 @@ public class Robot {
     }
 
     public Move move() {
-        // select best move out of moves
-        Move best = selectBestMove();
-        // apply the best move
-        this.position = best.destination;
-        return best;
+        // determine the next move
+        Move next = determineNextMove();
+        // apply the next move
+        this.position = next.destination;
+        // check whether there is a collision
+        WorldVector vector = world.collide(position);
+        if (vector!=null) {
+            throw new RuntimeException("Collision detected with vector: "+vector);
+        }
+        return next;
     }
 
-    private Move selectBestMove() {
+    private Move determineNextMove() {
         List<Move> moves = getMoves();
         Move best = null;
         for (Move move : moves) {
