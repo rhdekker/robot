@@ -6,9 +6,9 @@ import java.util.List;
 /**
  * Created by ronalddekker on 08/07/15.
  */
-public class Robot {
-    private final World world;
-    private Point position;
+public abstract class Robot {
+    protected final World world;
+    protected Point position;
     private Point goal;
 
     public Robot(World world, Point position) {
@@ -32,6 +32,9 @@ public class Robot {
     public Move move() {
         // determine the next move
         Move next = determineNextMove();
+        if (next == null) {
+            throw new RuntimeException("Could not determine next move!");
+        }
         // apply the next move
         this.position = next.destination;
         // check whether there is a collision
@@ -42,25 +45,6 @@ public class Robot {
         return next;
     }
 
-    private Move determineNextMove() {
-        List<Move> moves = getMoves();
-        Move best = null;
-        for (Move move : moves) {
-            if (best == null || move.rate(getGoal()) < best.rate(getGoal())) {
-                best = move;
-            }
-        }
-        return best;
-    }
-
-    private List<Move> getMoves() {
-        List<Move> moves = new ArrayList<>();
-        // add moves in all directions
-        moves.add(new Move("upperleft", new Point(position.x-1, position.y-1)));
-        moves.add(new Move("up", new Point(position.x, position.y-1)));
-        moves.add(new Move("upperright", new Point(position.x+1, position.y-1)));
-        // TODO: add more moves
-        return moves;
-    }
+    protected abstract Move determineNextMove();
 
 }
