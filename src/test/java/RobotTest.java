@@ -1,3 +1,4 @@
+import renderer.Application;
 import robots.SmartRobot;
 import org.junit.Test;
 import world.*;

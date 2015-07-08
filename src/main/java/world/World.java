@@ -9,7 +9,7 @@ import java.util.List;
  * Created by ronalddekker on 08/07/15.
  */
 public class World {
-    private List<WorldObject> objects = new ArrayList<>();
+    public List<WorldObject> objects = new ArrayList<>();
 
 
     public void addObjects(WorldObject... objects) {

@@ -1,3 +1,5 @@
+package renderer;
+
 import world.Point;
 import world.World;
 import world.WorldObject;
@@ -14,7 +16,7 @@ public class Application {
         application.world = application.constructWorld();
     }
 
-    protected World constructWorld() {
+    public World constructWorld() {
         // create world
         World world = new World();
 

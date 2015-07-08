@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class WorldObject implements Comparable<WorldObject> {
     private final String title;
-    private List<WorldVector> vectors;
+    public List<WorldVector> vectors;
 
     public WorldObject(String title, WorldVector worldVector) {
         this.title = title;

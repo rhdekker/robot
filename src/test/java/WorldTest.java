@@ -1,4 +1,5 @@
 import org.junit.Test;
+import renderer.Application;
 import world.*;
 
 /**
@@ -21,7 +22,7 @@ public class WorldTest {
 
 //    @Test
 //    public void testFindNearestBorder() {
-//        Application main = new Application();
+//        renderer.Application main = new renderer.Application();
 //        World world = main.constructWorld();
 //
 //        WorldObject result = world.findNearestBorder(new Robot(new Point(10, 10)));
@@ -30,7 +31,7 @@ public class WorldTest {
 
 //    @Test
 //    public void testRobotMoves() {
-//        Application main = new Application();
+//        renderer.Application main = new renderer.Application();
 //        World world = main.constructWorld();
 //
 //        Robot robot = new Robot(new Point(10, 10));
