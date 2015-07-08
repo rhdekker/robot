@@ -21,17 +21,19 @@ public class Application {
         Application application = new Application();
         World world = application.constructWorld();
 
-        // situation 1
-        // add obstruction
-        WorldObject obstruction = new WorldObject("obstruction", new WorldVector(new Point(2,7), new Point(17,7)));
-        world.addObjects(obstruction);
+//        // situation 1
+//        // add obstruction
+//        WorldObject obstruction = new WorldObject("obstruction", new WorldVector(new Point(2,7), new Point(17,7)));
+//        world.addObjects(obstruction);
 
-//        // situation 2
-//        WorldObject leftSidePanel = new WorldObject("obstruction", new WorldVector(new Point(2,7), new Point(7,2)));
-//        world.addObjects(leftSidePanel);
-//
-//        WorldObject middlePanel = new WorldObject("obstruction", new WorldVector(new Point(8,2), new Point(12,2)));
-//        world.addObjects(middlePanel);
+        // situation 2
+        WorldObject leftSidePanel = new WorldObject("obstruction", new WorldVector(new Point(2,6), new Point(6,2)));
+        WorldObject leftSidePanel2 = new WorldObject("obstruction", new WorldVector(new Point(2,7), new Point(7,2)));
+        WorldObject middlePanel = new WorldObject("obstruction", new WorldVector(new Point(8,2), new Point(12,2)));
+
+        world.addObjects(leftSidePanel);
+        world.addObjects(leftSidePanel2);
+        world.addObjects(middlePanel);
 
 
         // setup robot

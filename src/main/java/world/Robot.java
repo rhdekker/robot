@@ -48,9 +48,13 @@ public abstract class Robot {
     public List<Point> goToGoal() {
         List<Point> path = new ArrayList<>();
         while(!hasReachedGoal()) {
-            Move move = move();
-            path.add(move.destination);
-            System.out.println("Last move was: " + move);
+            try {
+                Move move = move();
+                path.add(move.destination);
+                System.out.println("Last move was: " + move);
+            } catch (Exception e) {
+                break;
+            }
         }
         return path;
     }
