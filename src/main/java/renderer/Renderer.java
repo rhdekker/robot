@@ -9,27 +9,12 @@ import java.awt.geom.Line2D;
 /**
  * Created by ronalddekker on 08/07/15.
  */
-public class Renderer extends JFrame {
-
-
-    public Renderer() {
-        super("ShapesDemo2D");
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                System.exit(0);
-            }
-        });
-        init();
-        pack();
-        setSize(new Dimension(300, 300));
-        show();
-    }
+public class Renderer extends JPanel {
 
     public void init() {
         setBackground(Color.white);
         setForeground(Color.white);
     }
-
 
     public void paint(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
@@ -42,10 +27,20 @@ public class Renderer extends JFrame {
 
         g2.draw(new Line2D.Double(x, y, 200, 200));
         g2.drawString("Line2D", x, 250);
-
     }
 
     public static void main(String s[]) {
-        Renderer renderer = new Renderer();
+        JFrame f = new JFrame("ShapesDemo2D");
+        f.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+        Renderer panel = new Renderer();
+        f.getContentPane().add("Center", panel);
+        panel.init();
+        f.pack();
+        f.setSize(new Dimension(300, 300));
+        f.show();
     }
 }
