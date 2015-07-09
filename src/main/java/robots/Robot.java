@@ -46,6 +46,10 @@ public abstract class Robot {
         if (next == null) {
             throw new RuntimeException("Could not determine next move!");
         }
+        // check loop
+        if (path.size()>1 && next.destination.equals(path.get(path.size()-2))) {
+            throw new RuntimeException("Robot is in a loop! It is not allowed to go back to a previous position!");
+        }
         // apply the next move
         this.position = next.destination;
         // add it to the path
