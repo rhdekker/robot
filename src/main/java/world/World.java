@@ -18,16 +18,22 @@ public class World {
         this.objects.addAll(objects);
     }
 
-    public WorldVector collide(Point point) {
-        WorldVector collidingObject  = null;
+    public Collision collide(Point point) {
+        WorldObject collidingObject = null;
+        WorldVector collidingVector = null;
         for (WorldObject object : objects) {
-            WorldVector result = object.collide(point);
-            if (result != null) {
-                collidingObject = result;
+            WorldVector vector = object.collide(point);
+            if (vector != null) {
+                collidingObject = object;
+                collidingVector = vector;
                 break;
             }
         }
-        return collidingObject;
+        if (collidingVector == null) {
+            return null;
+        }
+        Collision collision = new Collision(collidingObject, collidingVector);
+        return collision;
     }
 
 }

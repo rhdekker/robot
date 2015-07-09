@@ -3,6 +3,8 @@ package world;
 import application.Application;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * Created by ronalddekker on 08/07/15.
  */
@@ -16,9 +18,8 @@ public class WorldTest {
         Point point = new Point(0, 5);
 
         // should collide with left border
-        WorldVector collisionVector = world.collide(point);
-        System.out.println(collisionVector);
-
+        Collision collision = world.collide(point);
+        assertEquals("left", collision.getIdentifier());
     }
 
 }

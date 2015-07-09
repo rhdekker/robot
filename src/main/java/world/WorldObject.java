@@ -7,7 +7,7 @@ import java.util.List;
  * Created by ronalddekker on 08/07/15.
  */
 public class WorldObject implements Comparable<WorldObject> {
-    private final String title;
+    final String title;
     public List<WorldVector> vectors;
 
     public WorldObject(String title, WorldVector worldVector) {

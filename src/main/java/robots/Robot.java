@@ -1,8 +1,8 @@
 package robots;
 
+import world.Collision;
 import world.Point;
 import world.World;
-import world.WorldVector;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,9 +51,9 @@ public abstract class Robot {
         // add it to the path
         path.add(next.destination);
         // check whether there is a collision
-        WorldVector vector = world.collide(position);
-        if (vector!=null) {
-            throw new RuntimeException("Collision detected with vector: "+vector);
+        Collision collision = world.collide(position);
+        if (collision!=null) {
+            throw new RuntimeException(collision.toString());
         }
         return next;
     }

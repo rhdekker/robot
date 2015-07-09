@@ -1,7 +1,5 @@
 package world;
 
-import world.Point;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +22,11 @@ public class WorldVector {
             return result;
         }
         return end.compareTo(other.end);
+    }
+
+    @Override
+    public String toString() {
+        return "Vector from "+begin.toString()+" to "+end.toString();
     }
 
     public List<Point> rasterize() {

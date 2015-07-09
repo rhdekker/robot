@@ -1,6 +1,8 @@
 package robots;
 
-import world.*;
+import world.Collision;
+import world.Point;
+import world.World;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +59,7 @@ public class SmartRobot extends Robot {
     private List<Move> filterIllegalMoves(List<Move> moves) {
         List<Move> result = new ArrayList<>();
         for (Move move : moves) {
-            WorldVector collision = world.collide(move.destination);
+            Collision collision = world.collide(move.destination);
             if (collision == null) {
                 result.add(move);
             }
