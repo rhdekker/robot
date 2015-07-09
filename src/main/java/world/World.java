@@ -1,10 +1,7 @@
 package world;
 
-import robots.Robot;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -31,13 +28,6 @@ public class World {
             }
         }
         return collidingObject;
-    }
-
-    //TODO: not finished!
-    public WorldObject findNearestBorder(Robot robot) {
-        Collections.sort(objects);
-        System.out.println(objects);
-        return null;
     }
 
 }
