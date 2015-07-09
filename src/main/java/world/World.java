@@ -1,5 +1,7 @@
 package world;
 
+import robots.Robot;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -10,7 +12,6 @@ import java.util.List;
  */
 public class World {
     public List<WorldObject> objects = new ArrayList<>();
-
 
     public void addObjects(WorldObject... objects) {
         this.addObjects(Arrays.asList(objects));

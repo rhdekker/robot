@@ -1,7 +1,7 @@
+package robots;
+
 import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-import world.Move;
 import world.Point;
 
 import java.util.Objects;

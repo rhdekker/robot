@@ -1,7 +1,6 @@
+package world;
+
 import org.junit.Test;
-import world.Point;
-import world.WorldObject;
-import world.WorldVector;
 
 import java.util.List;
 

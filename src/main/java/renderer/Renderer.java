@@ -1,8 +1,10 @@
 package renderer;
 
+import robots.Robot;
 import world.Point;
-import world.Robot;
-import world.*;
+import world.World;
+import world.WorldObject;
+import world.WorldVector;
 
 import javax.swing.*;
 import java.awt.*;

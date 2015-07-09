@@ -1,6 +1,7 @@
+package world;
+
+import application.Application;
 import org.junit.Test;
-import renderer.Application;
-import world.*;
 
 /**
  * Created by ronalddekker on 08/07/15.
@@ -22,7 +23,7 @@ public class WorldTest {
 
 //    @Test
 //    public void testFindNearestBorder() {
-//        renderer.Application main = new renderer.Application();
+//        application.Application main = new application.Application();
 //        World world = main.constructWorld();
 //
 //        WorldObject result = world.findNearestBorder(new Robot(new Point(10, 10)));
@@ -31,7 +32,7 @@ public class WorldTest {
 
 //    @Test
 //    public void testRobotMoves() {
-//        renderer.Application main = new renderer.Application();
+//        application.Application main = new application.Application();
 //        World world = main.constructWorld();
 //
 //        Robot robot = new Robot(new Point(10, 10));

@@ -1,4 +1,8 @@
-package world;
+package robots;
+
+import world.Point;
+import world.World;
+import world.WorldVector;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,11 +1,14 @@
-import renderer.Application;
-import robots.SmartRobot;
+package robots;
+
+import application.Application;
 import org.junit.Test;
-import world.*;
+import world.Point;
+import world.World;
+import world.WorldObject;
+import world.WorldVector;
 
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 /**
  * Created by ronalddekker on 08/07/15.
@@ -43,8 +46,8 @@ public class RobotTest {
         Robot robot = new SmartRobot(world, new Point(10, 10));
         robot.setGoal(new Point(10, 5));
 
-//        assertThat(robot.move(), MoveMatcher.move(10, 9));
-//        assertThat(robot.move(), MoveMatcher.move(10, 9));
+//        assertThat(robot.move(), robots.MoveMatcher.move(10, 9));
+//        assertThat(robot.move(), robots.MoveMatcher.move(10, 9));
 //        assertTrue(robot.hasReachedGoal());
 //        Last move was: up:(10,8)
 //        Last move was: left:(9,8)

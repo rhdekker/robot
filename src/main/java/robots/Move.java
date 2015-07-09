@@ -1,4 +1,6 @@
-package world;
+package robots;
+
+import world.Point;
 
 /**
  * Created by ronalddekker on 08/07/15.
