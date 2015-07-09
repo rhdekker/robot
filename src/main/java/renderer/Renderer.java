@@ -1,11 +1,11 @@
 package renderer;
 
-import world.*;
 import world.Point;
+import world.Robot;
+import world.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
 
 /**
  * Created by ronalddekker on 08/07/15.
@@ -13,11 +13,11 @@ import java.util.List;
 public class Renderer extends JPanel {
 
     private final World world;
-    private List<Point> path;
+    private final Robot robot;
 
-    public Renderer(World world, List<Point> path) {
+    public Renderer(World world, Robot robot) {
         this.world = world;
-        this.path = path;
+        this.robot = robot;
     }
 
     public void init() {
@@ -45,8 +45,13 @@ public class Renderer extends JPanel {
         // draw path of robot
         g2.setPaint(Color.black);
 
-        for (world.Point point : path) {
+        for (world.Point point : robot.getPath()) {
             g2.draw(new Rectangle(point.x*10, point.y*10, 10, 10));
         }
+
+        // draw the goal
+        g2.setPaint(Color.blue);
+        Point goal = robot.getGoal();
+        g2.draw(new Rectangle(goal.x*10, goal.y*10, 10, 10));
    }
 }

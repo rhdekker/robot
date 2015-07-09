@@ -1,15 +1,14 @@
 package renderer;
 
 import robots.SmartRobot;
-import world.*;
 import world.Point;
 import world.Robot;
+import world.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.List;
 
 /**
  * Created by ronalddekker on 08/07/15.
@@ -35,16 +34,15 @@ public class Application {
         world.addObjects(leftSidePanel2);
         world.addObjects(middlePanel);
 
-
         // setup robot
         Robot robot = new SmartRobot(world, new Point(10, 10));
         robot.setGoal(new Point(10, 1));
 
         // let robot walk
-        List<Point> path = robot.goToGoal();
+        robot.goToGoal();
 
         // setup renderer
-        renderer.Renderer panel = new renderer.Renderer(world, path);
+        renderer.Renderer panel = new renderer.Renderer(world, robot);
 
         // setup main window
         JFrame f = new JFrame("ShapesDemo2D");

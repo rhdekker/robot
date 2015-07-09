@@ -8,12 +8,15 @@ import java.util.List;
  */
 public abstract class Robot {
     protected final World world;
+    private final List<Point> path = new ArrayList<>();
     protected Point position;
     private Point goal;
 
     public Robot(World world, Point position) {
         this.world = world;
         this.position = position;
+        // add start position to the path
+        this.path.add(position);
     }
 
     public Point getGoal() {
@@ -29,6 +32,10 @@ public abstract class Robot {
         return position.equals(getGoal());
     }
 
+    public List<Point> getPath() {
+        return path;
+    }
+
     public Move move() {
         // determine the next move
         Move next = determineNextMove();
@@ -37,6 +44,8 @@ public abstract class Robot {
         }
         // apply the next move
         this.position = next.destination;
+        // add it to the path
+        path.add(next.destination);
         // check whether there is a collision
         WorldVector vector = world.collide(position);
         if (vector!=null) {
@@ -46,13 +55,12 @@ public abstract class Robot {
     }
 
     public List<Point> goToGoal() {
-        List<Point> path = new ArrayList<>();
         while(!hasReachedGoal()) {
             try {
                 Move move = move();
-                path.add(move.destination);
                 System.out.println("Last move was: " + move);
             } catch (Exception e) {
+                System.err.println(e.getMessage());
                 break;
             }
         }
