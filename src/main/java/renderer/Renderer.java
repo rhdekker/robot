@@ -20,9 +20,6 @@ public class Renderer extends JPanel {
     public Renderer(World world, Robot robot) {
         this.world = world;
         this.robot = robot;
-    }
-
-    public void init() {
         setBackground(Color.white);
         setForeground(Color.white);
     }
