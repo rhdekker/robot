@@ -23,7 +23,7 @@ public class RobotTest {
         Application application = new Application();
         World world = application.constructWorld();
 
-        Robot robot = new SmartRobot(world, new Point(10, 10));
+        Robot robot = new DumpRobot(world, new Point(10, 10));
         robot.setGoal(new Point(10, 5));
 
         assertThat(robot.move(), MoveMatcher.move(10, 9));
@@ -43,7 +43,7 @@ public class RobotTest {
         WorldObject obstruction = new WorldObject("obstruction", new WorldVector(new Point(3,7), new Point(16,7)));
         world.addObjects(obstruction);
 
-        Robot robot = new SmartRobot(world, new Point(10, 10));
+        Robot robot = new DumpRobot(world, new Point(10, 10));
         robot.setGoal(new Point(10, 5));
 
         assertThat(robot.move(), robots.MoveMatcher.move(10, 9));
