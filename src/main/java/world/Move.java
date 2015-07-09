@@ -12,12 +12,6 @@ public class Move {
         this.destination = destination;
     }
 
-    public double rate(Point goal) {
-        // calculate the remaining distance to the goal
-        double rating = destination.distanceToPoint(goal);
-        return rating;
-    }
-
     @Override
     public String toString() {
         return description+":"+destination;

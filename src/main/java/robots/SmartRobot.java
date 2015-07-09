@@ -37,12 +37,21 @@ public class SmartRobot extends Robot {
     private Move findBestRatedMove(List<Move> moves) {
         Move best = null;
         for (Move move : moves) {
-            if (best == null || move.rate(getGoal()) < best.rate(getGoal())) {
+            if (best == null || rate(move) < rate(best)) {
                 best = move;
             }
         }
         return best;
     }
+
+    public double rate(Move move) {
+        Point goal = getGoal();
+        // calculate the remaining distance to the goal
+        double rating = move.destination.distanceToPoint(goal);
+        return rating;
+    }
+
+
 
     // filter away moves that are not possible
     private List<Move> filterIllegalMoves(List<Move> moves) {
