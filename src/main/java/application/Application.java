@@ -18,15 +18,8 @@ import java.awt.event.WindowEvent;
 public class Application {
 
     public static void main(String args[]) {
-        // setup world
+        // setup application
         Application application = new Application();
-
-        // setup test situation 1
-        renderer.Renderer panel1 = getPanelForSituation1(application);
-
-        // setup test situation 2
-        renderer.Renderer panel2 = getPanelForSituation2(application);
-
 
         // setup main window
         JFrame f = new JFrame("Robot test chamber");
@@ -38,8 +31,18 @@ public class Application {
 
         // setup tabbed pane and tabs
         JTabbedPane tabs = new JTabbedPane();
-        tabs.add("test situation 1", panel1);
-        tabs.add("test situation 2", panel2);
+
+        // setup test situation 0
+        renderer.Renderer panel0 = getPanelForSituation0(application);
+        tabs.add("test situation 0", panel0);
+
+//        // setup test situation 1
+//        renderer.Renderer panel1 = getPanelForSituation1(application);
+//        tabs.add("test situation 1", panel1);
+
+//        // setup test situation 2
+//        renderer.Renderer panel2 = getPanelForSituation2(application);
+//        tabs.add("test situation 2", panel2);
 
         f.getContentPane().add("Center", tabs);
         f.pack();
@@ -47,6 +50,22 @@ public class Application {
         f.setVisible(true);
     }
 
+
+    private static renderer.Renderer getPanelForSituation0(Application application) {
+        // situation 0
+        World world = application.constructWorld();
+
+        // setup robot
+        Robot robot = new SmartRobot(world, new Point(10, 10));
+        robot.setGoal(new Point(10, 5));
+
+        // let robot walk
+        System.out.println("Log test situation 0");
+        robot.goToGoal();
+
+        // setup renderer
+        return new renderer.Renderer(world, robot);
+    }
 
     private static renderer.Renderer getPanelForSituation1(Application application) {
         // situation 1
@@ -60,8 +79,8 @@ public class Application {
         Robot robot = new SmartRobot(world, new Point(10, 10));
         robot.setGoal(new Point(10, 5));
 
-        // TODO: delay!
         // let robot walk
+        System.out.println("Log test situation 1");
         robot.goToGoal();
 
         // setup renderer
@@ -84,8 +103,8 @@ public class Application {
         Robot robot = new SmartRobot(world, new Point(10, 10));
         robot.setGoal(new Point(10, 1));
 
-        // TODO: delay!
         // let robot walk
+        System.out.println("Log test situation 2");
         robot.goToGoal();
 
         // setup renderer
