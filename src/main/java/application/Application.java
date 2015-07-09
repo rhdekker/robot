@@ -72,7 +72,7 @@ public class Application {
         World world = application.constructWorld();
 
         // add obstruction
-        WorldObject obstruction = new WorldObject("obstruction", new WorldVector(new Point(2,7), new Point(17,7)));
+        WorldObject obstruction = new WorldObject("obstruction", new WorldVector(new Point(3,7), new Point(16,7)));
         world.addObjects(obstruction);
 
         // setup robot

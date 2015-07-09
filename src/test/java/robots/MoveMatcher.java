@@ -32,6 +32,6 @@ public class MoveMatcher extends BaseMatcher<Move> {
 
     @Override
     public void describeTo(Description description) {
-        System.out.println("describeTo called!");
+        description.appendText("move to "+expectedDestination.toString());
     }
 }
