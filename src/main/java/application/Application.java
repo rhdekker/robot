@@ -1,5 +1,6 @@
 package application;
 
+import renderer.Renderer;
 import robots.DumpRobot;
 import robots.Robot;
 import world.Point;
@@ -43,6 +44,14 @@ public class Application {
 //        // setup test situation 2
 //        renderer.Renderer panel2 = getPanelForSituation2(application);
 //        tabs.add("test situation 2", panel2);
+
+//        // setup test situation 3
+//        renderer.Renderer panel3 = getPanelForSituation3(application);
+//        tabs.add("test situation 3", panel3);
+
+//        // setup test situation 4
+//        renderer.Renderer panel4 = getPanelForSituation4(application);
+//        tabs.add("test situation 4", panel4);
 
         f.getContentPane().add("Center", tabs);
         f.pack();
@@ -110,6 +119,54 @@ public class Application {
         // setup renderer
         return new renderer.Renderer(world, robot);
     }
+
+
+    private static Renderer getPanelForSituation3(Application application) {
+        // situation 3
+        World world = application.constructWorld();
+
+        WorldObject leftPanel = new WorldObject("obstruction", new WorldVector(new Point(8, 5), new Point(8, 8)));
+        WorldObject rightPanel = new WorldObject("obstruction", new WorldVector(new Point(12, 5), new Point(12, 8)));
+        WorldObject topPanel = new WorldObject("obstruction", new WorldVector(new Point(8, 4), new Point(12, 4)));
+
+        world.addObjects(leftPanel);
+        world.addObjects(rightPanel);
+        world.addObjects(topPanel);
+
+        // setup robot
+        Robot robot = new DumpRobot(world, new Point(10, 10));
+        robot.setGoal(new Point(10, 1));
+
+        // let robot walk
+        System.out.println("Log test situation 3");
+        robot.goToGoal();
+
+        return new renderer.Renderer(world, robot);
+    }
+
+    private static Renderer getPanelForSituation4(Application application) {
+        // situation 3
+        World world = application.constructWorld();
+
+        WorldObject leftPanel = new WorldObject("obstruction", new WorldVector(new Point(9, 5), new Point(9, 8)));
+        WorldObject rightPanel = new WorldObject("obstruction", new WorldVector(new Point(11, 5), new Point(11, 8)));
+        WorldObject topPanel = new WorldObject("obstruction", new WorldVector(new Point(9, 4), new Point(11, 4)));
+
+        world.addObjects(leftPanel);
+        world.addObjects(rightPanel);
+        world.addObjects(topPanel);
+
+        // setup robot
+        Robot robot = new DumpRobot(world, new Point(10, 10));
+        robot.setGoal(new Point(10, 1));
+
+        // let robot walk
+        System.out.println("Log test situation 3");
+        robot.goToGoal();
+
+        return new renderer.Renderer(world, robot);
+    }
+
 
     public World constructWorld() {
         // create world
