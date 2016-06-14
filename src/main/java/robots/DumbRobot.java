@@ -6,8 +6,8 @@ import world.World;
 /**
  * Created by ronalddekker on 09/07/15.
  */
-public class DumpRobot extends Robot {
-    public DumpRobot(World world, Point position) {
+public class DumbRobot extends Robot {
+    public DumbRobot(World world, Point position) {
         super(world, position);
     }
 

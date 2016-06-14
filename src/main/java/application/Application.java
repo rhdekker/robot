@@ -1,7 +1,7 @@
 package application;
 
 import renderer.Renderer;
-import robots.DumpRobot;
+import robots.DumbRobot;
 import robots.Robot;
 import world.Point;
 import world.World;
@@ -65,7 +65,7 @@ public class Application {
         World world = application.constructWorld();
 
         // setup robot
-        Robot robot = new DumpRobot(world, new Point(10, 10));
+        Robot robot = new DumbRobot(world, new Point(10, 10));
         robot.setGoal(new Point(10, 5));
 
         // let robot walk
@@ -85,7 +85,7 @@ public class Application {
         world.addObjects(obstruction);
 
         // setup robot
-        Robot robot = new DumpRobot(world, new Point(10, 10));
+        Robot robot = new DumbRobot(world, new Point(10, 10));
         robot.setGoal(new Point(10, 5));
 
         // let robot walk
@@ -109,7 +109,7 @@ public class Application {
         world.addObjects(middlePanel);
 
         // setup robot
-        Robot robot = new DumpRobot(world, new Point(10, 10));
+        Robot robot = new DumbRobot(world, new Point(10, 10));
         robot.setGoal(new Point(10, 1));
 
         // let robot walk
@@ -134,7 +134,7 @@ public class Application {
         world.addObjects(topPanel);
 
         // setup robot
-        Robot robot = new DumpRobot(world, new Point(10, 10));
+        Robot robot = new DumbRobot(world, new Point(10, 10));
         robot.setGoal(new Point(10, 1));
 
         // let robot walk
@@ -157,7 +157,7 @@ public class Application {
         world.addObjects(topPanel);
 
         // setup robot
-        Robot robot = new DumpRobot(world, new Point(10, 10));
+        Robot robot = new DumbRobot(world, new Point(10, 10));
         robot.setGoal(new Point(10, 1));
 
         // let robot walk
